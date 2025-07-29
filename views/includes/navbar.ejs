@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-md border-bottom sticky-top bg-white">
+  <div class="container-fluid d-flex justify-content-between align-items-center position-relative">
+
+    <!-- LEFT: Logo + Explore (always visible) -->
+    <div class="d-flex align-items-center" id="navLeft">
+      <a class="navbar-brand me-2" href="/listings">
+        <i class="fa-regular fa-compass"></i>
+      </a>
+      <a class="nav-link" href="/listings">Explore</a>
+    </div>
+
+    <!-- CENTER: Search Bar (always visible on large, toggle on small) -->
+    <div class=" mx-auto position-absolute top-40 start-50 translate-middle-x" id="searchCenter">
+      <form class="d-flex search-bar-form d-none d-md-flex" id="searchBar" role="search">
+        <input class="form-control me-2 search-input" type="search" placeholder="Search" />
+        <button class="btn btn-outline-danger search-btn" type="submit">Search</button>
+      </form>
+    </div>
+
+    <!-- RIGHT: Search icon (small only) + Toggler -->
+    <div class="d-flex align-items-center ms-auto" id="navRight">
+      <!-- Search icon for small screen -->
+      <i class="fa fa-search d-md-none me-3 search-icon" id="searchToggle" style="cursor: pointer;"></i>
+
+      <!-- Toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+    <!-- COLLAPSIBLE NAV -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto" id="navItems">
+        <li class="nav-item">
+          <a class="nav-link" href="/listings/new">Add New Listing</a>
+        </li>
+        <% if (!currUser) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup"><b>Signup</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login"><b>Login</b></a>
+          </li>
+        <% } else { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout"><b>Logout</b></a>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>
+<script src="/js/search.js"></script>

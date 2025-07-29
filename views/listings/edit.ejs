@@ -1,0 +1,64 @@
+<%-layout("/layouts/boilerplate")%>
+<body>
+    <div class="row col-md-8 offset-md-2">
+    <form method="POST" action="/listings/<%=post._id%>?_method=PUT" class="needs-validation" novalidate enctype="multipart/form-data">
+        <h1>Edit post</h1>
+        <div>
+            <label class="form-label" for="title">Title : </label>
+            <input class="form-control mb-3" type="text" name="listing[title]" value="<%=post.title%>" required>
+            <div class="invalid-feedback">title is required</div>
+        </div>
+        <div>
+            <label class="form-label" for="description">Description : </label>
+            <textarea class="form-control mb-3" name="listing[description]" id="" required><%=post.description%></textarea>
+            <div class="invalid-feedback">write short description</div>
+
+        </div>
+        <div class="mb-3">
+            Original image <br>
+            <img src="<%= prevImage%>" style="width: 250px;height: 200px;" alt="">
+        </div>
+        <div>
+            <label class="form-label" for="image">Upload image</label>
+            <input class="form-control mb-3" type="file" name="image" >
+        </div>
+        <div class="row">
+            <div class="mb-3 col-md-4">
+                <label class="form-label" for="price">Price : </label>
+                <input class="form-control" type="number" name="listing[price]" placeholder="enter price" value="<%=post.price%>" required>
+                <div class="invalid-feedback">Enter valid price</div>        
+
+            </div>
+            <div class="mb-3 col-md-8">
+                <label class="form-label">Category:</label>
+                <select class="form-control form-select" name="listing[category]" required>
+                    <option disabled <%= !post.category ? "selected" : "" %>>Select category</option>
+                    <option value="Rooms" <%= post.category === "Rooms" ? "selected" : "" %>>Rooms</option>
+                    <option value="Iconic Cities" <%= post.category === "Iconic Cities" ? "selected" : "" %>>Iconic Cities</option>
+                    <option value="Mountains" <%= post.category === "Mountains" ? "selected" : "" %>>Mountains</option>
+                    <option value="Arctics" <%= post.category === "Arctics" ? "selected" : "" %>>Arctics</option>
+                    <option value="Castles" <%= post.category === "Castles" ? "selected" : "" %>>Castles</option>
+                    <option value="Camping" <%= post.category === "Camping" ? "selected" : "" %>>Camping</option>
+                    <option value="Farms" <%= post.category === "Farms" ? "selected" : "" %>>Farms</option>
+                    <option value="Tree Houses" <%= post.category === "Tree Houses" ? "selected" : "" %>>Tree Houses</option>
+                    <option value="Villas" <%= post.category === "Villas" ? "selected" : "" %>>Villas</option>
+                    <option value="Condos" <%= post.category === "Condos" ? "selected" : "" %>>Condos</option>
+                    <option value="Bungalows" <%= post.category === "Bungalows" ? "selected" : "" %>>Bungalows</option>
+                </select>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3 col-md-8">
+                <label class="form-label" for="location">Location : </label>
+                <input class="form-control" type="text" name="listing[location]" value="<%=post.location%>" required>
+            </div>
+            <div class="mb-3 col-md-4">
+                <label class="form-label" for="country">Country : </label>
+                <input class="form-control" type="text" name="listing[country]" value="<%=post.country%>" required>
+            </div>
+        </div>
+        <button class="btn btn-dark">Submit</button>
+    </form>
+    </div>
+</body>
