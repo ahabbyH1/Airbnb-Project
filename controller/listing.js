@@ -7,6 +7,36 @@ module.exports.index = async(req,res) => {
     let allListing = await listing.find({});
     res.render("./listings/index.ejs",{allListing});
 }
+const Listing = require("../models/listing.js");
+
+module.exports.search = async (req, res) => {
+  const query = req.query.query;
+
+  // Create a case-insensitive regex
+  const regex = new RegExp(query, 'i');
+
+  // Search across title, category, location, or owner.username
+  const results = await Listing.find({
+    $or: [
+      { title: regex },
+      { category: regex },
+      { location: regex }
+    ]
+  }).populate("owner");
+
+  // Filter by owner username after population
+  const filteredResults = results.filter(listing =>
+    listing.owner && regex.test(listing.owner.username)
+  );
+
+  const finalResults = [...new Set([...results, ...filteredResults])];
+
+  res.render("./listings/index.ejs", {
+    allListing: finalResults,
+    query
+  });
+};
+
 module.exports.rooms = async(req,res) => {
     let allListing = await listing.find({category: "Rooms"});
     res.render("./listings/index.ejs",{allListing});

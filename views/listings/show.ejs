@@ -66,8 +66,7 @@
       <div class="card border col-md-5 ms-md-5 mb-2">
         <div class="card-body">
           <h5 class="card-title"><%=review.author.username%></h5>
-          <p class="starability-result card-text" data-rating="<%=review.rating%>"></p>
-
+          <p class="starability-result card-text" style="--star-fill: <%= (review.rating / 5) * 100 %>%"></p>
           <p class="card-text"><%=review.comment%></p>
           <form method="POST" action="/listings/<%=post._id%>/reviews/<%=review._id%>?_method=DELETE">
             <button class="mb-3 btn btn-sm btn-dark">Delete</button>

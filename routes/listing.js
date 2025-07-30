@@ -11,6 +11,8 @@ router.route("/")
 .get(wrapAsync(listingController.index))
 .post(upload.single('image'),validateListing,wrapAsync(listingController.createNewListing))
 
+router.route("/search")
+.get(wrapAsync(listingController.search));
 router.route("/rooms")
 .get(wrapAsync(listingController.rooms));
 router.route("/iconic")

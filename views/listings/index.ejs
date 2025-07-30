@@ -1,87 +1,71 @@
 <%layout("/layouts/boilerplate")%>
 <body>
-    <div id="filters" class="ms-2">
-        <div class="filter">
-            <a href="/listings/trending">
-                <div><i class="fa-solid fa-fire"></i></div>
-                <p>Trending</p>
-            </a>
-        </div>
-        <div class="filter">
-            <a href="/listings/rooms">
-                <div><i class="fa-solid fa-bed"></i></div>
-                <p>Rooms</p>
-            </a>
-        </div>
-        <div class="filter">
-            <a href="/listings/iconic">
-                <div><i class="fa-solid fa-mountain-city"></i></div>
-                <p>Iconic cities</p>
-            </a>
-        </div>
-        <div class="filter">
-            <a href="/listings/mountain">
-                <div><i class="fa-solid fa-mountain"></i></div>
-                <p>Mountains</p>
-            </a>
-        </div>
-        <div class="filter">
-            <a href="/listings/arctic">
-                <div><i class="fa-solid fa-person-swimming"></i></div>
-                <p>Arctics</p>
-            </a>
-        </div>
-        <div class="filter">
-            <a href="/listings/castle">
-                <div><i class="fa-brands fa-fort-awesome"></i></div>
-                <p>Castles</p>
-            </a>
-        </div>
-        <div class="filter">
-            <a href="/listings/camping">
-                <div><i class="fa-solid fa-campground"></i></div>
-                <p>Camping</p>
-            </a>
-        </div>
-        <div class="filter">
-            <a href="/listings/farm">
-                <div><i class="fa-solid fa-cow"></i></div>
-                <p>Farms</p>
-            </a>
-        </div>
-        <div class="filter">
-            <a href="/listings/tree">
-                <div><i class="fa-solid fa-tree-city"></i></div>
-                <p>Tree houses</p>
-            </a>
-        </div>
-        <div class="filter">
-            <a href="/listings/villa">
-                <div><i class="fa-solid fa-house-flag"></i></div>
-                <p>Villas</p>
-            </a>
-        </div>
-        <div class="filter">
-            <a href="/listings/condo">
-                <div><i class="fa-solid fa-house-chimney-user"></i></div>
-                <p>Condos</p>
-            </a>
-        </div>
-        <div class="filter">
-            <a href="/listings/bungalow">
-                <div><i class="fa-solid fa-house-chimney-window"></i></div>
-                <p>Bungalows</p>
-            </a>
-        </div>
-        
-        
-        <div class="toggle-btn">
-            <div class="form-check-reverse form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                <label class="form-check-label" for="switchCheckDefault">Display total after taxes</label>
-            </div>
+    <!-- Filters Container -->
+<div class="px-3 py-2 d-flex justify-content-between align-items-center flex-wrap" id="filter-bar">
+
+  <!-- Categories Dropdown (visible only below 1400px) -->
+  <div class="categories-dropdown">
+    <div class="dropdown">
+      <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Categories
+      </button>
+      <ul class="dropdown-menu dropdown-menu-dark">
+        <li><a class="dropdown-item" href="/listings/trending"><i class="fa-solid fa-fire me-2"></i>Trending</a></li>
+        <li><a class="dropdown-item" href="/listings/rooms"><i class="fa-solid fa-bed me-2"></i>Rooms</a></li>
+        <li><a class="dropdown-item" href="/listings/iconic"><i class="fa-solid fa-mountain-city me-2"></i>Iconic Cities</a></li>
+        <li><a class="dropdown-item" href="/listings/mountain"><i class="fa-solid fa-mountain me-2"></i>Mountains</a></li>
+        <li><a class="dropdown-item" href="/listings/arctic"><i class="fa-solid fa-person-swimming me-2"></i>Arctics</a></li>
+        <li><a class="dropdown-item" href="/listings/castle"><i class="fa-brands fa-fort-awesome me-2"></i>Castles</a></li>
+        <li><a class="dropdown-item" href="/listings/camping"><i class="fa-solid fa-campground me-2"></i>Camping</a></li>
+        <li><a class="dropdown-item" href="/listings/farm"><i class="fa-solid fa-cow me-2"></i>Farms</a></li>
+        <li><a class="dropdown-item" href="/listings/tree"><i class="fa-solid fa-tree-city me-2"></i>Tree Houses</a></li>
+        <li><a class="dropdown-item" href="/listings/villa"><i class="fa-solid fa-house-flag me-2"></i>Villas</a></li>
+        <li><a class="dropdown-item" href="/listings/condo"><i class="fa-solid fa-house-chimney-user me-2"></i>Condos</a></li>
+        <li><a class="dropdown-item" href="/listings/bungalow"><i class="fa-solid fa-house-chimney-window me-2"></i>Bungalows</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Tax Toggle Button -->
+  <div class="toggle-btn toggle-btn-small-screen">
+    <div class="form-check-reverse form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckSmall">
+      <label class="form-check-label" for="switchCheckSmall">Total after taxes</label>
+    </div>
+  </div>
+
+</div>
+
+<!-- Icon Filters for large screens -->
+ <div class="large-screen">
+<div id="filters" class="d-flex flex-wrap ms-2">
+  <div class="filter"><a href="/listings/trending"><div><i class="fa-solid fa-fire"></i></div><p>Trending</p></a></div>
+  <div class="filter"><a href="/listings/rooms"><div><i class="fa-solid fa-bed"></i></div><p>Rooms</p></a></div>
+  <div class="filter"><a href="/listings/iconic"><div><i class="fa-solid fa-mountain-city"></i></div><p>Iconic cities</p></a></div>
+  <div class="filter"><a href="/listings/mountain"><div><i class="fa-solid fa-mountain"></i></div><p>Mountains</p></a></div>
+  <div class="filter"><a href="/listings/arctic"><div><i class="fa-solid fa-person-swimming"></i></div><p>Arctics</p></a></div>
+  <div class="filter"><a href="/listings/castle"><div><i class="fa-brands fa-fort-awesome"></i></div><p>Castles</p></a></div>
+  <div class="filter"><a href="/listings/camping"><div><i class="fa-solid fa-campground"></i></div><p>Camping</p></a></div>
+  <div class="filter"><a href="/listings/farm"><div><i class="fa-solid fa-cow"></i></div><p>Farms</p></a></div>
+  <div class="filter"><a href="/listings/tree"><div><i class="fa-solid fa-tree-city"></i></div><p>Tree houses</p></a></div>
+  <div class="filter"><a href="/listings/villa"><div><i class="fa-solid fa-house-flag"></i></div><p>Villas</p></a></div>
+  <div class="filter"><a href="/listings/condo"><div><i class="fa-solid fa-house-chimney-user"></i></div><p>Condos</p></a></div>
+  <div class="filter"><a href="/listings/bungalow"><div><i class="fa-solid fa-house-chimney-window"></i></div><p>Bungalows</p></a></div>
+</div>
+    <div class="toggle-btn toggle-btn-large-screen">
+        <div class="form-check-reverse form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckLarge">
+            <label class="form-check-label" for="switchCheckLarge"><b>Total after Taxes</b></label>
         </div>
     </div>
+</div>
+
+<div class="mt-3 search-result">
+    <% if (typeof query !== "undefined") { %>
+    <h2>Search Results for "<%= query %>"</h2>
+    <% } %>
+</div>
+
     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
         <%for(list of allListing) {%>
             <a href="/listings/<%=list._id%>">
