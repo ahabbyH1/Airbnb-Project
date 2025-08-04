@@ -32,7 +32,7 @@ app.set("views",path.join(__dirname,"views"));
 app.engine("ejs",ejsMate);
 
 const store = MongoStore.create({
-    mongoUrl: "mongodb://127.0.0.1:27017/wonderlust",
+    mongoUrl: "mongodb+srv://mtauheedcse2105h1:9BZQcxRBbmRbTk8d@cluster0.6d0o1iy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
     crypto:{
         secret: process.env.SECRET,
     },
@@ -78,7 +78,7 @@ main()
     console.log(err);
 });
 async function main(){
-    await mongoose.connect("mongodb://127.0.0.1:27017/wonderlust");
+    await mongoose.connect("mongodb+srv://mtauheedcse2105h1:9BZQcxRBbmRbTk8d@cluster0.6d0o1iy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
 }
 
 app.listen(port,() => {
